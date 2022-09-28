@@ -3,6 +3,7 @@ module github.com/kuoby/hornbill
 go 1.18
 
 require (
+	github.com/BurntSushi/toml v1.2.0
 	github.com/pkg/errors v0.9.1
 	github.com/urfave/cli/v2 v2.16.3
 	go.uber.org/zap v1.23.0
