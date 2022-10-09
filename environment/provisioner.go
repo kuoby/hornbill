@@ -2,7 +2,5 @@ package environment
 
 type Provisioner interface {
 	Configure() error
-	New() Instance
+	NewProcess() Process
 }
-
-type Instance interface{}

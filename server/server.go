@@ -1,10 +1,8 @@
 package server
 
-type Instance struct {
-	fs *Filesystem
-}
+type Server struct{}
 
-// NewInstance returns a new Instance.
-func NewInstance() *Instance {
-	return &Instance{}
+// New returns a new Server.
+func New() *Server {
+	return &Server{}
 }

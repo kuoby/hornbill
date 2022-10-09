@@ -34,13 +34,11 @@ func (fs *Filesystem) Sanitize(p string) (string, error) {
 	if err != nil {
 		return "", errors.Wrap(err, "could not evaluate symlinks")
 	}
-
 	// If the directory from EvalSymlinks begins with filesystem root directory, return it.
 	// Otherwise, we will just return an error to prevent further action.
 	if strings.HasPrefix(strings.TrimSuffix(r, "/"), strings.TrimSuffix(fs.root, "/")) {
 		return r, nil
 	}
-
 	return "", ErrUnsafePath
 }
 
@@ -55,7 +53,6 @@ func (fs *Filesystem) File(p string) (*os.File, os.FileInfo, error) {
 	if err != nil {
 		return nil, nil, err
 	}
-
 	if st.IsDir() {
 		return nil, nil, ErrIsDirectory
 	}
@@ -64,6 +61,5 @@ func (fs *Filesystem) File(p string) (*os.File, os.FileInfo, error) {
 	if err != nil {
 		return nil, nil, err
 	}
-
 	return f, st, nil
 }

@@ -5,6 +5,7 @@ import (
 
 	"github.com/kuoby/hornbill/config"
 	"github.com/kuoby/hornbill/environment"
+	"github.com/kuoby/hornbill/environment/docker"
 	"github.com/kuoby/hornbill/mongoose"
 	"github.com/pkg/errors"
 	"github.com/urfave/cli/v2"
@@ -33,7 +34,7 @@ func newRunCommand() *cli.Command {
 			var psr environment.Provisioner
 			switch cfg.Environment.Provisioner {
 			case "docker":
-				psr = environment.NewDocker()
+				psr = docker.NewProvisioner()
 			default:
 				lgr.Fatal("unknown provisioner was defined", zap.String("provisioner", cfg.Environment.Provisioner))
 			}
